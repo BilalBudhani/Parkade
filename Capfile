@@ -32,7 +32,7 @@ require "capistrano/rbenv"
 require "capistrano/bundler"
 require "capistrano/rails/assets"
 require "capistrano/rails/migrations"
-# require_relative 'config/deploy/puma'
+require_relative 'config/deploy/puma'
 
 # require "capistrano/passenger"
 
