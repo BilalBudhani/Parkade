@@ -12,5 +12,7 @@ Rails.application.routes.draw do
 
   get :dash, to: "pages#index", as: :dashboard
   get :login, to: "pages#backdoor"
+  get :gatekeeper, to: "domains#gatekeeper"
+
   root "pages#index"
 end

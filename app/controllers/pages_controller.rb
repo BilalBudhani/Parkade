@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  before_action :authenticate_user!, except: :backdoor
+  before_action :authenticate_user!, except: [:backdoor]
 
   def index
     render inertia: "Dashboard", props: {
