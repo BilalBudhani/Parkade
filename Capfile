@@ -30,9 +30,9 @@ install_plugin Capistrano::SCM::Git
 require "capistrano/rbenv"
 # require "capistrano/chruby"
 require "capistrano/bundler"
-require "capistrano/rails/assets"
+# require "capistrano/rails/assets"
+# require 'capistrano/local_precompile'
 require "capistrano/rails/migrations"
-require_relative 'config/deploy/puma'
 
 # require "capistrano/passenger"
 

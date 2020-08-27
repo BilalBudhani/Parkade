@@ -12,7 +12,7 @@ gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 # gem 'sassc-rails'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 4.0'
+gem 'webpacker', '~> 5.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -48,6 +48,8 @@ group :development do
   gem 'capistrano-rbenv',   require: false
   gem 'capistrano-rails',   require: false
   gem 'capistrano-bundler', require: false
+  gem 'capistrano-local-precompile', '~> 1.2.0', require: false
+
 end
 
 group :test do
