@@ -7,7 +7,7 @@
 
       <div class="p-4 text-white bg-black mt-4">
         <code>
-          127.0.0.1
+          {{server_ip}}
         </code>
       </div>
 
@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  props: ["domain"]
+  props: ["domain", "server_ip"]
 }
 </script>
 

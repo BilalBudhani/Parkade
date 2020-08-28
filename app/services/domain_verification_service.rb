@@ -7,11 +7,15 @@ class DomainVerificationService
   end
 
   def valid?
-    records.any?
+    records.map { _1.address.to_s }.include?(server_ip)
   end
 
   private
   def records
     @a ||= Resolv::DNS.new.getresources(host, Resolv::DNS::Resource::IN::A)
+  end
+
+  def server_ip
+    Rails.application.credentials.dig(:server_ip)
   end
 end

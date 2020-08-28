@@ -7,13 +7,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <%= yield(:head) %>
   </head>
 
   <body class="antialiased bg-gray-200 font-sans">
     <%= yield %>
-
     <%= yield(:footer) %>
   </body>
 </html>

@@ -9,9 +9,7 @@
 
           <nav class="relative">
               <button class="w-12 h-12 rounded-full overflow-hidden border-2 focus:outline-none" @click="handleMenuToggle">
-                  <img :src="$page.user.avatar_url" class="w-full h-full object-cover" :alt="$page.user.name" />
-
-                  <strong>{{$page.user.name}}</strong>
+                <img :src="$page.user.avatar_url" class="w-full h-full object-cover" :alt="$page.user.name" />
               </button>
 
               <div class="absolute right-0 mt-2 py-2 w-32 bg-white rounded-md shadow-lg z-50 border-2 text-sm" v-show="menuOpen">

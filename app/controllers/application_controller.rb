@@ -3,19 +3,17 @@ class ApplicationController < ActionController::Base
   before_action :set_csrf_cookie
 
   inertia_share do
-    shared = {
+    {
       errors: session.delete(:errors) || [],
       flash: {
         success: flash.notice,
         alert: flash.alert
+      },
+      user: {
+        name: current_user.name,
+        avatar_url: current_user.avatar_url
       }
     }
-
-    shared[:user] = current_user.as_json(
-      only: %i[name avatar_url],
-    )
-
-    shared
   end
 
   private

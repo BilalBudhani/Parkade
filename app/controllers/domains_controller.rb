@@ -11,7 +11,7 @@ class DomainsController < ApplicationController
     domain.status = "pending"
     domain.user = current_user
     if domain.save
-      redirect_to setup_domain_path(domain), notice: "Domain added successfully"
+      redirect_to setup_domain_path(domain)
     else
       session[:errors] = domain.errors
       redirect_to new_domain_path, alert: "Something went wrong"
@@ -21,25 +21,23 @@ class DomainsController < ApplicationController
   def setup
     domain = Domain.find(params[:id])
     render inertia: "Domains/Setup", props: {
-      domain: domain
+      domain: domain,
+      server_ip: Rails.application.credentials.dig(:server_ip)
     }
   end
 
   def verify
     domain = Domain.find(params[:id])
     verification_service = DomainVerificationService.new(domain.name)
-    valid = verification_service.valid?
 
-    if valid
+    if verification_service.valid?
       domain.status = 'verified'
       domain.dns_linked = true
       domain.save
+      redirect_to dashboard_path, notice: "Domain verified successfully"
+    else
+      redirect_to setup_domain_path(domain), alert: "Couldn't verify DNS update"
     end
-
-    render inertia: "Domains/Setup", props: {
-      domain: domain,
-      valid: valid
-     }
   end
 
   def gatekeeper
