@@ -12,6 +12,30 @@
           validation="required"
           name="name"
         />
+        <FormulateInput
+          type="text"
+          label="Title"
+          placeholder="My Awesome Product Domain"
+          name="title"
+        />
+        <FormulateInput
+          type="textarea"
+          label="Description"
+          placeholder="Give some context about your domain"
+          name="description"
+        />
+        <FormulateInput
+          type="textarea"
+          label="Head scripts"
+          placeholder="Drop your JS code here for <head> tag"
+          name="head_scripts"
+        />
+        <FormulateInput
+          type="textarea"
+          label="Body scripts"
+          placeholder="Drop your JS code here before </body> tag"
+          name="footer_scripts"
+        />
         <button class="btn-primary">Submit</button>
       </FormulateForm>
     </Card>

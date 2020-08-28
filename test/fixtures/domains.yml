@@ -3,11 +3,13 @@
 # Table name: domains
 #
 #  id             :bigint           not null, primary key
+#  description    :text
 #  dns_linked     :boolean          default(FALSE)
 #  footer_scripts :text
 #  head_scripts   :text
 #  name           :string           not null
 #  status         :string           not null
+#  title          :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  user_id        :bigint           not null

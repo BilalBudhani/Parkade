@@ -53,6 +53,6 @@ class DomainsController < ApplicationController
 
   private
   def domain_params
-    params.require(:domain).permit(:name)
+    params.require(:domain).permit(:name, :title, :description, :head_scripts, :footer_scripts)
   end
 end

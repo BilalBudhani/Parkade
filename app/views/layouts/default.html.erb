@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <%= yield(:title) %>
+    </title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <%= yield(:head) %>
+  </head>
+
+  <body class="antialiased bg-gray-200 font-sans">
+    <%= yield %>
+
+    <%= yield(:footer) %>
+  </body>
+</html>

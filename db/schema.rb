@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 2020_08_27_080915) do
 
   create_table "domains", force: :cascade do |t|
     t.string "name", null: false
+    t.string "title"
+    t.text "description"
     t.string "status", null: false
     t.boolean "dns_linked", default: false
     t.text "head_scripts"
