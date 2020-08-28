@@ -5,11 +5,14 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+
     <%= stylesheet_pack_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application', defer: true %>
   </head>
 
-  <body class="antialiased bg-gray-200 font-sans">
+  <body class="antialiased font-sans text-blue-900" style="background: #f9fbfd;">
     <%= yield %>
   </body>
 </html>

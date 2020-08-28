@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 
   before_action :set_csrf_cookie
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   inertia_share do
     {
@@ -21,4 +22,7 @@ class ApplicationController < ActionController::Base
     cookies['XSRF-TOKEN'] = form_authenticity_token
   end
 
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+  end
 end

@@ -35,6 +35,8 @@ class User < ApplicationRecord
 
   has_many :domains
 
+  before_save :skip_confirmation!
+
 
   def avatar_url
     require 'digest/md5'
@@ -42,4 +44,5 @@ class User < ApplicationRecord
     hash = Digest::MD5.hexdigest(email_address)
     "https://www.gravatar.com/avatar/#{hash}"
   end
+
 end

@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="py-4 flex items-center">
-      <h4>Add Domain</h4>
+      <h2 class="font-bold text-4xl">Park A Domain</h2>
     </div>
     <Card>
       <FormulateForm @submit="handleSubmit" v-model="form">
