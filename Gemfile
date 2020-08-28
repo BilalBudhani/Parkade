@@ -28,6 +28,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'inertia_rails'
 gem 'devise'
 gem 'annotate'
+gem "administrate"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

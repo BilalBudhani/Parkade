@@ -4,6 +4,14 @@ require_relative '../lib/domain_restrictor'
 Rails.application.routes.draw do
 
   constraints DomainRestrictor.new  do
+
+    namespace :admin do
+      resources :users
+      resources :domains
+
+      root to: "users#index"
+    end
+
     devise_for :users
 
     resources :domains do

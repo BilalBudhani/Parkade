@@ -4,7 +4,8 @@
       <inertia-link href="/" class="font-black text-2xl lg:text-3xl flex items-center hover:no-underline">
           Parkade
       </inertia-link>
-      <nav class="relative">
+      <nav class="flex items-center space-x-4">
+        <a href="mailto:hey@bilal.dev">Feedback</a>
         <button class="w-12 h-12 rounded-full overflow-hidden border-2 focus:outline-none" @click="handleLogout">
           <img :src="$page.user.avatar_url" class="w-full h-full object-cover" :alt="$page.user.name" />
         </button>
@@ -13,7 +14,6 @@
   </header>
 </template>
 <script>
-import isEmpty from "lodash/isEmpty";
 export default {
   methods: {
     handleLogout() {
