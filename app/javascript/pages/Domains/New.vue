@@ -4,7 +4,7 @@
       <h2 class="font-bold text-4xl">Park A Domain</h2>
     </div>
     <Card>
-      <FormulateForm @submit="handleSubmit" v-model="form">
+      <FormulateForm @submit="handleSubmit" v-model="form" :errors="errors">
         <FormulateInput
           type="text"
           label="Domain"
@@ -36,7 +36,7 @@
           placeholder="Drop your JS code here before </body> tag"
           name="footer_scripts"
         />
-        <button class="btn-primary">Submit</button>
+        <button class="px-4 py-2 bg-indigo-400 text-white rounded flex items-center font-medium">Submit</button>
       </FormulateForm>
     </Card>
   </Layout>
@@ -44,9 +44,10 @@
 
 <script>
 export default {
+  props: ['errors'],
   data() {
     return {
-      form: {}
+      form: {},
     };
   },
   methods: {

@@ -14,5 +14,9 @@
 
   <body class="antialiased font-sans text-blue-900" style="background: #f9fbfd;">
     <%= yield %>
+
+    <footer class="text-sm text-gray-700 container mx-auto text-center py-4 mt-2">
+      &copy; <%= Date.today.year %> Parkade. All right reserved. Brought to you by <a href="https://bilal.dev" class="text-blue-600 font-semibold" target="_blank">Bilal Budhani</a>.
+    </footer>
   </body>
 </html>

@@ -3,7 +3,9 @@ class DomainsController < ApplicationController
   before_action :authenticate_user!, except: [:gatekeeper]
 
   def new
-    render inertia: "Domains/New"
+    render inertia: "Domains/New", props: {
+      errors: session[:errors]
+    }
   end
 
   def create
