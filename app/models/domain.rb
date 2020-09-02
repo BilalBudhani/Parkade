@@ -25,7 +25,8 @@
 #
 class Domain < ApplicationRecord
   belongs_to :user
+  has_many :enquires
 
   validates_presence_of :name, :status
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name, message: 'Domain name already registered'
 end

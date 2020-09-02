@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_27_080915) do
+ActiveRecord::Schema.define(version: 2020_08_29_071958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 2020_08_27_080915) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_domains_on_name", unique: true
     t.index ["user_id"], name: "index_domains_on_user_id"
+  end
+
+  create_table "enquires", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone"
+    t.string "offer"
+    t.text "notes"
+    t.bigint "domain_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["domain_id"], name: "index_enquires_on_domain_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,4 +66,5 @@ ActiveRecord::Schema.define(version: 2020_08_27_080915) do
   end
 
   add_foreign_key "domains", "users"
+  add_foreign_key "enquires", "domains"
 end

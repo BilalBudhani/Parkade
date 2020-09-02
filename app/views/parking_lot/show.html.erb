@@ -6,11 +6,46 @@
   <%== @domain.head_scripts %>
 <% end%>
 
-<main class="p-4 m-4 container mx-auto bg-white border rounded">
-  <h1 class="font-bold text-4xl">This domain is parked at Parkade.host</h1>
-  <p class="text-gray-800 p-2">
-    <%= @domain.description %>
-  </p>
+<main class="w-full lg:h-screen flex flex-col lg:flex-row justify-center items-center">
+  <div class="flex flex-col w-full lg:w-1/2 h-full justify-center items-center">
+    <h1 class="text-6xl leading-tight flex flex-col items-center">
+      <span class="font-bold"><%= @domain.name.titleize %></span>
+      <span class="font-medium">available for sale!</span>
+    </h1>
+    <p class="text-gray-900 text-xl p-2">
+      The owner of this domain has parked it at parkade.host
+    </p>
+  </div>
+  <div class="bg-white w-full lg:w-1/2 h-full justify-center items-center flex flex-col">
+    <h2 class="font-bold text-3xl">Interested in this domain?</h2>
+    <%= form_for(@enquire, url: offer_path, html: { class: "w-full max-w-lg py-6" }) do |f| %>
+      <div class="mb-4">
+        <%= f.label :name, class: "font-medium"%>
+        <%= f.text_field :name, placeholder: "John Doe", class: "w-full p-2 rounded border-blue-200 border-2 mt-1 outline-none" %>
+      </div>
+
+      <div class="mb-4">
+        <%= f.label :email, class: "font-medium"%>
+        <%= f.email_field :email, placeholder: "johndoe@example.com", class: "w-full p-2 rounded border-blue-200 border-2 mt-1 outline-none" %>
+      </div>
+
+      <div class="mb-4">
+        <%= f.label :phone, class: "font-medium"%>
+        <%= f.phone_field :phone, placeholder: "", class: "w-full p-2 rounded border-blue-200 border-2 mt-1 outline-none" %>
+      </div>
+
+      <div class="mb-4">
+        <%= f.label :offer, class: "font-medium"%>
+        <%= f.text_field :offer, placeholder: "Your offering price", class: "w-full p-2 rounded border-blue-200 border-2 mt-1 outline-none" %>
+      </div>
+
+      <div class="mb-4">
+        <%= f.label :notes, "Comments", class: "font-medium"%>
+        <%= f.text_area :notes, class: "w-full p-2 rounded border-blue-200 border-2 mt-1 outline-none" %>
+      </div>
+      <%= f.submit "Make An Offer", class: "px-4 py-2 bg-indigo-400 hover:bg-indigo-600 text-white w-full rounded" %>
+    <% end %>
+  </div>
 </main>
 
 <% content_for :footer do %>

@@ -16,12 +16,12 @@ class DomainsController < ApplicationController
       redirect_to setup_domain_path(domain)
     else
       session[:errors] = domain.errors
-      redirect_to new_domain_path, alert: "Something went wrong"
+      redirect_to new_domain_path, alert: "Please fix the errors"
     end
   end
 
   def setup
-    domain = Domain.find(params[:id])
+    domain = current_user.domains.find(params[:id])
     render inertia: "Domains/Setup", props: {
       domain: domain,
       server_ip: Rails.application.credentials.dig(:server_ip)
@@ -29,7 +29,7 @@ class DomainsController < ApplicationController
   end
 
   def verify
-    domain = Domain.find(params[:id])
+    domain = current_user.domains.find(params[:id])
     verification_service = DomainVerificationService.new(domain.name)
 
     if verification_service.valid?
