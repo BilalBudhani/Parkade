@@ -30,5 +30,6 @@ Rails.application.routes.draw do
   constraints DomainRestrictor.new(false)  do
     get "/", to: "parking_lot#show"
     post "/", to: "parking_lot#offer", as: :offer
+    patch "/", to: "parking_lot#offer"
   end
 end

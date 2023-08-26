@@ -12,6 +12,7 @@ class ParkingLotController < ApplicationController
     @enquire = Enquire.new enquire_params
     @enquire.domain = @domain
     if @enquire.save
+      @enquire = Enquire.new
       render :show, notice: "Your offer has been captured successfully."
     else
       render :show, alert: "There was an error. Please try again."
